@@ -47,7 +47,7 @@ final class OhMySmtpApiTransport extends AbstractApiTransport
 
     public function __toString(): string
     {
-        return sprintf('ohmysmtp+api://%s', $this->getEndpoint());
+        return \sprintf('ohmysmtp+api://%s', $this->getEndpoint());
     }
 
     protected function doSendApi(SentMessage $sentMessage, Email $email, Envelope $envelope): ResponseInterface
@@ -66,7 +66,7 @@ final class OhMySmtpApiTransport extends AbstractApiTransport
             $statusCode = $response->getStatusCode();
             $result = $response->toArray(false);
         } catch (DecodingExceptionInterface) {
-            throw new HttpTransportException('Unable to send an email: '.$response->getContent(false).sprintf(' (code %d).', $statusCode), $response);
+            throw new HttpTransportException('Unable to send an email: '.$response->getContent(false).\sprintf(' (code %d).', $statusCode), $response);
         } catch (TransportExceptionInterface $e) {
             throw new HttpTransportException('Could not reach the remote OhMySMTP endpoint.', $response, 0, $e);
         }
