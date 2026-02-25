@@ -1,6 +1,10 @@
 OhMySMTP Bridge
 ===============
 
+# Deprecation Notice
+
+This package has been deprecated in favor of the symfony/mail-pace-mailer since OhMySMTP has been rebanded as MailPace.
+
 Provides [OhMySMTP](https://ohmysmtp.com) integration for Symfony Mailer.
 
 Configuration example:
